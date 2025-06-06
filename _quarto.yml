@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+
+website:
+  title: "Rose Dinh"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      
+  page-footer:
+    left: |
+      &copy; Rose Dinh, 2025<br>
+      All content licensed under <i class='bi-badge-cc'></i>
+      [(CC BY-NC-SA 4.0)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+    right: |
+      Site built with <a href='https://quarto.org/'>Quarto</a>
+
+format:
+  html:
+    theme:
+      - minty
+    css: styles.css
+    toc: true
+
+
