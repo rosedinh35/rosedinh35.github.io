@@ -1,6 +1,8 @@
 /*
-  min_median_max_skeleton.c
-  Day 6, Demo 4
+  Rose Dinh
+  CS-171
+  9/21/2026
+  min_median_max.c
 
   Goal: given three numbers, IN ANY ORDER, figure out which one is
   the minimum, which is the median (middle), and which is the
@@ -16,7 +18,7 @@
   all 6.
 
   Compile with:
-      cc day6_04_min_median_max_skeleton.c
+      cc day6_04_min_median_max.c
   Run with:
       ./a.out
 
@@ -53,9 +55,74 @@ int main()
     //         tree of nested if/else statements that covers all 6,
     //         assigning min, median, and max at each final branch.
 
-  
-    // TODO 4: print min, median, and max
+  // if (a <= b) {
+    //  if (a <= c) {
+      //   if (b <= c) {
+	// a <= b && a <= c && b <= c
+	//	min = a;
+	//	median = b;
+	//	max = c;
+	//   } else {
+	// a <= b && a <= c && b > c
+	//	min = a;
+	//	median = c;
+	//	max = b;
+	//   }
+      //  } else {
+      // a <= b && a > c
+      //  min = c;
+      //  median = a;
+      //   max = b;
+      //  }
+    // } else {
+    // a > b
+    //   if (a <= c) {
+      //    min = b;
+      //  median = a;
+      //      max = c;
+      //    } else {
+      //    if (b <= c) {
+	//	min = b;
+	//	median = c;
+	//	max = a;
+	//      } else {
+	//	min = c;
+	//	median = b;
+	//	max = a;
+	//     }
+      //   } 
+    // }
 
+  // QUICKER WAY AND LESS MESSY
+  if (a <= b && b <= c) {
+    min = a;
+    median = b;
+    max = c;
+  } else if (a <= c && c < b) {
+    min = a;
+    median = c;
+    max = b;
+  } else if (c < a && a <= b) {
+    min = c;
+    median = a;
+    max = b;
+  } else if (b < c && a <= c) {
+    min = b;
+    median = a;
+    max = c;
+  } else if (b <= c && c < a) {
+    min = b;
+    median = c;
+    max = a;
+  } else if (c < b && b < a) {
+    min = c;
+    median = b;
+    max = a;
+  }
+    // TODO 4: print min, median, and max
+  printf("The min is: %.0lf\n", min);
+  printf("The median is: %.0lf\n", median);
+  printf("The max is: %.0lf\n", max);
 
     return 0;
 }
