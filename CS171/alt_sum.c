@@ -43,11 +43,12 @@ int main()
   i = 1;
   product = 0;
 
-  while (i <= n) {
-    if (negative_result == 1) {
-    product = -product;
+ while (i <= n) {
+    if (fmod(i, 2) == 0) {
+      product = product - (i * i);
+    } else {
+      product = product + (i * i);
     }
-    product = product + (i * i);
     i = i + 1;
   }
 
