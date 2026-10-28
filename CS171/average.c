@@ -1,0 +1,71 @@
+/*
+  Rose Dinh
+  CS-171
+  10/28/26
+  average.c
+
+  Goal: read a sequence of non-negative numbers into an array, then find the 
+  average of the numbers in the array and print it. The average is the sum divided 
+  by how many numbers there are.
+
+  Compile with:
+      cc average.c
+  Run with:
+      ./a.out
+
+  Assume at least one number is typed before the negative number.
+
+  Test cases:
+      4 8 15 16 23 42 -1  ->  The average is 18.000000
+      2.5 7.5 -4          ->  The average is 5.000000
+      9 -2                ->  The average is 9.000000
+*/
+
+#include <stdio.h>
+
+int main()
+{
+  //  TODO:
+  // 1. Declare a double array v of 1000, a double x, and ints n and i.
+  double v[1000];
+  double x = 0;
+  int n = 0;
+  int i = 0;
+  
+  // 2. Set n to 0. Read a number into x. While x is not negative,
+  //    store it in v[n], add 1 to n, and read the next number at
+  //    the bottom of the loop. (ANY negative number stops it.)
+
+  printf("Enter positive values, terminating with a negative value: ");
+  scanf("%lf", &x);
+
+  while (x >= 0) {
+    v[n] = x;
+    ++n;
+
+    printf("Enter positive values, terminating with a negative value: ");
+    scanf("%lf", &x);
+  }
+  
+  // 3. Declare doubles named total and average. Set total to 0.
+  double total = 0;
+  double average = 1;
+  
+  // 4. Set i to 0. While i is less than n, add v[i] to total,
+  //    then add 1 to i.
+  
+  i = 0;
+  
+  while (i <= n) {
+    total = total + v[i];
+    ++i;
+  }
+  
+  // 5. Set average to total divided by n, and print it in the
+  //   format shown below.
+  average = total / n;
+
+  printf("The average is %lf\n", average);
+  
+  return 0;
+}
