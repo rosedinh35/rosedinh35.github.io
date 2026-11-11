@@ -19,7 +19,7 @@ int main()
   int count = 0;
   int largest = 0;
   int smallest = 0;
-
+  int range = 0;
   // Initialize Array
   while (i < 1000) {
     array[i] = 0;
@@ -31,7 +31,8 @@ int main()
   scanf("%d", &x);
 
   // While loop to continue getting input and place in array
-  while (x >= 0) {
+  i = 0;
+  while (x >= 0 && i < 1000) {
     array[i] = x;
     ++i;
     ++count;
@@ -42,11 +43,17 @@ int main()
 
   // Find largest and smallest
   i = 0;
-  
+  if (count > 0) {
+    smallest = array[0];
+    largest = array[0];
+  }
+
+  i = 1;
   while (i < count) {
     if (array[i] < smallest) {
       smallest = array[i];
-    } else if (array[i] > largest) {
+    }
+    if (array[i] > largest) {
       largest = array[i];
     }
     ++i;
@@ -54,6 +61,12 @@ int main()
 
   // Debugging - Printing the smallest and largest
   printf("The smallest value (%d) and the largest value (%d)\n", smallest, largest);
+
+  // Finding the range (largest - smallest)
+  range = largest - smallest;
+
+  // Printing the range
+  printf("Range: %d\n", range);
   
       
   return 0;
