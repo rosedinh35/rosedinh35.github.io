@@ -25,10 +25,11 @@ int main()
   while (w[i] != '\0') {
     if (w[i] == 'a' || w[i] == 'e' || w[i] == 'i' || w[i] == 'o' || w[i] == 'u') {
       ++i;
+    } else {
+      f[j] = w[i];
+      ++j;
+      ++i;
     }
-    ++i;
-    f[j] = w[i];
-    ++j;
   }
 
   // Print new word?
